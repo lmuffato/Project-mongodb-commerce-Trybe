@@ -4,6 +4,6 @@ db.produtos.updateMany({ tags: { $in: ["bovino"] } }, { $inc: { avaliacao: Numbe
 
 db.produtos.updateMany({ tags: { $in: ["ave"] } }, { $inc: { avaliacao: NumberInt(3) } });
 
-db.produtos.find({}, { nome: 1, avaliacao: 1, _id:0 });
+db.produtos.find({}, { nome: 1, avaliacao: 1, _id: 0 });
     
 // https://docs.mongodb.com/manual/core/shell-types/#numberint

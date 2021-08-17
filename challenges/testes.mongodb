@@ -1,0 +1,122 @@
+use('commerce')
+
+// db.produtos.updateMany({}, { $set: { criadoPor: "Ronald McDonald" } });
+
+// db.produtos.find({}, { _id: 0, criadoPor: 1, nome: 1 });
+
+// db.produtos.updateMany({}, { $set: { valorUnitario: NumberDecimal("0.00") } });
+
+// db.produtos.find({}, { _id: 0, valorUnitario: 1, nome: 1 });
+
+// db.produtos.updateMany({}, { $set: { avaliacao: NumberInt("0") } });
+
+// db.produtos.updateMany({ tags: "bovino" }, { $inc: { avaliacao: 5 } });
+
+// db.produtos.updateMany({ tags: "ave" }, { $inc: { avaliacao: 3 } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, avaliacao: 1 });
+
+// db.produtos.updateMany({ nome: "Big Mac" }, { $currentDate: { ultimaModificacao: true } });
+
+// db.produtos.find({ ultimaModificacao: { $exists: true } }, { _id: 0, nome: 1 });
+
+
+// db.produtos.updateMany({ nome: { $ne: "McChicken" } }, { $addToSet: { ingredientes: "ketchup" } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
+
+// db.produtos.updateMany(
+//     { nome: { $in: ["Big Mac", "Quarteirão com Queijo"] } },
+//     { $push: { ingredientes: "bacon" } },
+//     { upsert: true },
+// );
+
+// db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
+
+// db.produtos.updateMany({}, { $pull: { ingredientes: "cebola" } });
+// db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
+
+// db.produtos.updateMany({ nome: "Quarteirão com Queijo" }, { $pop: { ingredientes: -1 } });
+// db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
+
+// db.produtos.updateMany({ nome: "Cheddar McMelt" }, { $pop: { ingredientes: 1 } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
+
+// db.produtos.updateMany({}, { $set: { vendasPorDia: [0, 0, 0, 0, 0, 0, 0] } });
+
+// db.produtos.updateOne({ nome: "Big Mac" }, { $set: { "vendasPorDia.3": 60 } });
+
+// db.produtos.updateMany({ tags: { $in: ["bovino", "pão"] } }, { $set: { "vendasPorDia.6": 120 } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, vendasPorDia: 1 });
+
+// db.produtos.updateMany({}, { $push: { tags: { $each: ["combo", "tasty"], $sort: 1 } } });
+// db.produtos.find({}, { _id: 0, nome: 1, tags: 1 });
+
+// db.produtos.updateMany(
+//     {},
+//     {
+//       $push: {
+//         valoresNutricionais: {
+//           $each: [],
+//           $sort: { percentual: -1 },
+//         },
+//       },
+//     },
+//   );
+  
+//   db.produtos.find({}, { _id: 0, nome: 1, valoresNutricionais: 1 });
+
+// db.produtos.updateMany(
+//   { 
+//     valoresNutricionais: {
+//       $elemMatch: {
+//         percentual: { $gte: 40 },
+//         tipo: "sódio",
+//       },
+//     },
+//   },
+//   { $push: { tags: "muito sódio" } },
+// );
+
+// db.produtos.find({}, { _id: 0, nome: 1, tags: 1 });
+
+// db.produtos.updateMany(
+//     { 
+//       valoresNutricionais: {
+//         $elemMatch: {
+//           percentual: { $gt: 20, $lt: 40 },
+//           tipo: "sódio",
+//         },
+//       },
+//     },
+//     { $push: { tags: "contém sódio" } },
+//   );
+// db.produtos.find({ nome: { $in: [/Mc/i] } }).count();
+
+
+// db.produtos.find({ ingredientes: { $size: 4 } }).count();
+// db.produtos.find();
+
+// db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });
+
+// db.produtos.find({ $text: { $search: "frango hamburguer" } }).count();
+
+// db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });
+
+// db.produtos.find({ $text: { $search: "\"feito com\"" } }).count();
+
+// db.produtos.updateMany({}, { $rename: { descricao: "descricaoSite" } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, descricao: 1, descricaoSite: 1 });
+
+// db.produtos.updateOne({ nome: "Big Mac" }, { $unset: { curtidas: "" } });
+
+// db.produtos.find({}, { _id: 0, nome: 1, curtidas: 1 });
+
+// db.produtos.find({ $expr: { $gt: ["$curtidas", "$vendidos"] } }, { _id: 0, nome: 1 });
+
+// db.produtos.find({ vendidos: { $mod: [5, 0] } }, { _id: 0, nome: 1, vendidos: 1 });
+
+db.produtos.find();

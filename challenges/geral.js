@@ -73,3 +73,11 @@ db.produtos.updateMany({ nome: "Big Mac" }, {
 db.produtos.updateMany({ tags: { $all: ["bovino", "pão"] } }, {
   $inc: { "vendasPorDia.6": 120 },
 });
+
+db.produtos.updateMany({}, {
+  $push: { tags: { $each: ["combo", "tasty"],
+  $sort: 1,
+} },
+},
+{ upsert: true,
+});

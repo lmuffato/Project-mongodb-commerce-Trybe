@@ -4,9 +4,9 @@ db.produtos.updateMany(
   },
   {
     $currentDate: { 
-      ultimaModificacao: { $type: "date" }
+      ultimaModificacao: { $type: "date" },
     },
-  }
+  },
 );
 
 db.produtos.find(

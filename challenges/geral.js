@@ -116,3 +116,5 @@ db.produtos.updateMany({
     tags: "contém sódio",
   },
 });
+
+db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });

@@ -9,7 +9,6 @@
 db.produtos.updateMany(
   {},
   { $set: { avaliacao: NumberInt(0) } },
-  { upsert: true },
 );
 db.produtos.updateMany(
   { tags: { $elemMatch: { $eq: "bovino" } } },
@@ -20,4 +19,4 @@ db.produtos.updateMany(
   { $inc: { avaliacao: 3 } },
 );
 
-db.produtos.find({ valorUnitario: 0.00 }, { _id: 0, nome: 1, avaliacao: 1 });
+db.produtos.find({}, { _id: 0, nome: 1, avaliacao: 1 });

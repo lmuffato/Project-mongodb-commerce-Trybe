@@ -10,7 +10,7 @@ db.profutos.updateOne(
 
 db.produtos.updateMany(
     { ingredientes: { $elemMatch: { $regex: /^pão/i } },
-    tags: { $elemMatch: "bovino" },
+    tags: "bovino",
  },
  { $inc: { "vendasPorDia.6": 120 } },
 );

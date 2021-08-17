@@ -3,7 +3,7 @@ db.produtos.updateMany(
     { $push: { vendasPorDia: { $each: [0, 0, 0, 0, 0, 0, 0] } } },
 );
 
-db.profutos.updateOne(
+db.produtos.updateOne(
     { nome: "Big Mac" },
     { $inc: { "vendasPorDia.3": 60 } },
 );

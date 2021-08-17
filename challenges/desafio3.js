@@ -5,7 +5,7 @@ db.produtos.updateMany(
      { $inc: { avaliacao: 5 } },
 );
 
-b.produtos.updateMany(
+db.produtos.updateMany(
     { tags: "ave" },
      { $inc: { avaliacao: 3 } },
 );

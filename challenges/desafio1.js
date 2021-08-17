@@ -1,3 +1,3 @@
-// challenge1;
+// challenge 1;
 
-// starting project
+db.produtos.updateMany({}, {$set: { criadoPor: "Ronald McDonald" } });

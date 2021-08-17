@@ -81,3 +81,38 @@ db.produtos.updateMany({}, {
 },
 { upsert: true,
 });
+
+db.produtos.updateMany({
+  valoresNutricionais: {
+    $elemMatch: {
+      tipo: {
+        $eq: "sódio",
+      },
+      percentual: {
+        $gte: 40,
+      },
+    },
+  },
+}, {
+  $push: {
+    tags: "muito sódio",
+  },
+});
+
+db.produtos.updateMany({
+  valoresNutricionais: {
+    $elemMatch: {
+      tipo: {
+        $eq: "sódio",
+      },
+      percentual: {
+        $gt: 20,
+        $lt: 40,
+      },
+    },
+  },
+}, {
+  $push: {
+    tags: "contém sódio",
+  },
+});

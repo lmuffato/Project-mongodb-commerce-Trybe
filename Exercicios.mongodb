@@ -1,4 +1,4 @@
-/* Inclua o campo criadoPor em todos os documentos, colocando "Ronald McDonald"
+/* 1- Inclua o campo criadoPor em todos os documentos, colocando "Ronald McDonald"
 no valor desse campo.
 */
 db.produtos.updateMany({}, { $set: { criadoPor: "Ronald McDonald" } });
@@ -6,7 +6,69 @@ db.produtos.find({}, { nome: 1, criadoPor: 1, _id: 0 });
 
 /* 2- Inclua o campo valorUnitario em todos os documentos em que esse campo
 não existe e atribua a ele o valor "0.00", com o tipo NumberDecimal. */
-db.produtos.updateMany({}, { $set: { valorUnitario: NumberDecimal("0.00") } });
+db.produtos.updateMany(
+  { valorUnitario: { $exists: false } },
+  { $set: { valorUnitario: NumberDecimal("0.00") } });
+
 db.produtos.find({}, { nome: 1, valorUnitario: 1, _id: 0 });
 
+/* 3- Adicione o campo avaliacao em todos os documentos da coleção
+e efetue alterações nesse campo. */
+db.produtos.updateMany({}, { $set: { avaliacao: NumberInt(0) } });
 
+db.produtos.updateMany(
+  { tags: { $in: ["bovino"] } },
+  { $inc: { avaliacao: 5 } },
+);
+
+db.produtos.updateMany(
+  { tags: { $in: ["ave"] } },
+  { $inc: { avaliacao: 3 } },
+);
+
+db.produtos.find({}, { nome: 1, avaliacao: 1, _id: 0 });
+
+/* 4- Atribua a data corrente ao campo ultimaModificacao no sanduíche Big Mac  */
+db.produtos.updateOne(
+  { nome: "Big Mac" },
+  { $currentDate: { ultimaModificacao: true } },
+);
+
+db.produtos.find({ ultimaModificacao: { $exists: 1 } }, { nome: 1, _id: 0 });
+
+/* 5- Adicione ketchup aos ingredientes para todos os sanduíches menos o McChicken,
+garantindo que não haja duplicidade nos ingredientes */
+db.produtos.updateMany(
+  {
+    ingredientes: { $nin: ["ketchup"] },
+    nome: { $nin: ["McChicken"] }
+  },
+  { $push: { ingredientes: "ketchup" } }
+);
+
+db.produtos.find(
+  {},
+  { nome: 1, ingredientes: 1, _id: 0 },
+);
+
+/* 6- Inclua bacon no final da lista de ingredientes
+dos sanduíches Big Mac e Quarteirão com Queijo */
+db.produtos.updateMany(
+  { nome: { $in: ["Big Mac", "Quarteirão com Queijo"] } },
+  { $push: { ingredientes: "bacon" } },
+);
+
+db.produtos.find({}, { nome: 1, ingredientes: 1, _id: 0 });
+
+/* 7- Remova o item cebola de todos os sanduíches */
+db.produtos.updateMany({}, { $pull: { ingredientes: "cebola" } });
+
+db.produtos.find({}, { nome: 1, ingredientes: 1, _id: 0 });
+
+/* 8- Remova o primeiro ingrediente do sanduíche Quarteirão com Queijo */
+db.produtos.updateOne(
+  { nome: "Quarteirão com Queijo" },
+  { $pop: { ingredientes: -1 } },
+);
+
+db.produtos.find({}, { nome: 1, ingredientes: 1, _id: 0 });

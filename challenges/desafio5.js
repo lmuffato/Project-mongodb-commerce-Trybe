@@ -2,8 +2,8 @@
 // garantindo que não haja duplicidade nos ingredientes.
 
 db.produtos.updateMany(
-    { nome: { $nin: ["McChicken"] } },
-    { $push: {
+    { nome: { $ne: "McChicken" } },
+    { $addToSet: {
         ingredientes: "ketchup",
     } },
 );

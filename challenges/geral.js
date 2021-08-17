@@ -49,3 +49,7 @@ db.produtos.updateMany({
 }, {
   $addToSet: { ingredientes: "bacon" },
 });
+
+db.produtos.updateMany({}, {
+  $pull: { ingredientes: "cebola" },
+});

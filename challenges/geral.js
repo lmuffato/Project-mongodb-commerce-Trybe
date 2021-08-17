@@ -53,3 +53,7 @@ db.produtos.updateMany({
 db.produtos.updateMany({}, {
   $pull: { ingredientes: "cebola" },
 });
+
+db.produtos.updateOne({ nome: "Quarteirão com Queijo" }, {
+  $pop: { ingredientes: -1 },
+});

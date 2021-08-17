@@ -1,5 +1,5 @@
 db.produtos.updateMany(
   { nome: { $in: ["Bic Mac", "Quarteirão com Queijo"] } },
-  { $push: { ingredientes: "bacon" } },
+  { $addToSet: { ingredientes: "bacon" } },
 );
-db.produtos.find({}, { nome: 1, ingredientes: 1, _id: 0 });
+db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });

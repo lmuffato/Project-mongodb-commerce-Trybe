@@ -11,7 +11,7 @@ db.produtos.updateMany({
 {
   $push: {
     tags: {
-      $each: ["muito sodio"],
+      $each: ["muito sódio"],
     },
   },
 });

@@ -4,7 +4,7 @@ db.produtos.updateMany(
         "Cheddar McMelt", 
         "Extra Chicken"], 
     } },
-    { $addToSet: { ingredientes: "Ketchup" } },
+    { $addToSet: { ingredientes: "ketchup" } },
 );
 
 db.produtos.find(

@@ -6,4 +6,4 @@ db.produtos.updateMany(
 );
 // Crie uma query que retorne o nome e valorUnitario de todos os produtos.
 
-db.produtos.find( {}, { _id: 0, nome: 1, valorUnitario: 1 } );
+db.produtos.find({}, { _id: 0, nome: 1, valorUnitario: 1 });

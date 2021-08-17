@@ -57,3 +57,19 @@ db.produtos.updateMany({}, {
 db.produtos.updateOne({ nome: "Quarteirão com Queijo" }, {
   $pop: { ingredientes: -1 },
 });
+
+db.produtos.updateOne({ nome: "Cheddar McMelt" }, {
+  $pop: { ingredientes: 1 },
+});
+
+db.produtos.updateMany({}, {
+  $set: { vendasPorDia: [0, 0, 0, 0, 0, 0, 0] },
+});
+
+db.produtos.updateMany({ nome: "Big Mac" }, {
+  $inc: { "vendasPorDia.3": 60 },
+});
+
+db.produtos.updateMany({ tags: { $all: ["bovino", "pão"] } }, {
+  $inc: { "vendasPorDia.6": 120 },
+});

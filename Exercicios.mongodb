@@ -169,3 +169,22 @@ db.produtos.updateMany(
 
 db.produtos.find({}, { nome: 1, tags: 1, _id: 0 });
 
+/* 15- Conte quantos produtos contêm Mc no nome, sem considerar letras 
+maiúsculas ou minúsculas. */
+db.produtos.count({ nome: /mc/i });
+
+/* 16- Conte quantos produtos têm 4 ingredientes. */
+db.produtos.count({ ingredientes: { $size: 4 } });
+
+/* 17- Conte quantos documentos contêm as palavras frango e hamburguer
+utilizando o operador $text */
+db.produtos.createIndex(
+  { descricao: "text" },
+  { default_language: "portuguese" },
+);
+
+db.produtos.count({
+  $text: {
+    $search: "frango hamburguer",
+  },
+});

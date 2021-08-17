@@ -2,38 +2,38 @@ db.produtos.updateMany(
   {},
   { 
     $set: {
-      avaliacao: NumberInt("0")
-    }
-  }
+      avaliacao: NumberInt("0"),
+    },
+  },
 );
 
 db.produtos.updateMany(
   { 
     tags: {
-      $in: ["bovino"]
-    }
+      $in: ["bovino"],
+    },
   },
   { 
     $inc: {
-      avaliacao: NumberInt("5")
-    }
-  }
+      avaliacao: NumberInt("5"),
+    },
+  },
 );
 
 db.produtos.updateMany(
   { 
     tags: {
-      $in: ["ave"]
-    }
+      $in: ["ave"],
+    },
   },
   { 
     $inc: {
-      avaliacao: NumberInt("3")
-    }
-  }
+      avaliacao: NumberInt("3"),
+    },
+  },
 );
 
 db.produtos.find(
   {},
-  { nome: 1, avaliacao: 1, _id: 0 }
+  { nome: 1, avaliacao: 1, _id: 0 },
 );

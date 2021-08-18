@@ -2,7 +2,7 @@
 
 db.produtos.updateMany(
   {
-    $and: [
+    $or: [
       { nome: { $eq: "Big Mac" } },
       { nome: { $eq: "Quarteirão com Queijo" } },
     ],

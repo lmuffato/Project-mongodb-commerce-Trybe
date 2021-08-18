@@ -1,5 +1,5 @@
 db.produtos.find({
   nome: {
-    $regex: /^MC/i,
+    $regex: /mc/i,
   },
 }).count();

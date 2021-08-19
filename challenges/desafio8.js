@@ -1,5 +1,5 @@
 db.produtos.updateMany(
-  { name: "Quarteirão com Queijo" },
+  { nome: "Quarteirão com Queijo" },
   { $pop: { ingredientes: -1 } },
 );
 db.produtos.find({}, { nome: true, ingredientes: true, _id: false });

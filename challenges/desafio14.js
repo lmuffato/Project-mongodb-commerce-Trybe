@@ -10,7 +10,7 @@ db.produtos.updateMany(
     },
   },
 },
-{ $push: { tags: "comtém sódio" } },
+{ $push: { tags: "contém sódio" } },
 );
 
 db.produtos.find({}, { nome: true, tags: true, _id: false });

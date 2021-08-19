@@ -1,6 +1,6 @@
 db.produtos.updateMany(
   { },
-  { $set: {"vendasPorDia": [0, 0, 0, 0, 0, 0, 0] } },
+  { $set: { vendasPorDia: [0, 0, 0, 0, 0, 0, 0] } },
 );
 
 db.produtos.updateOne(
@@ -9,7 +9,7 @@ db.produtos.updateOne(
 );
 
 db.produtos.updateOne(
-  { tags: { $in: [ "bovina", "pão" ] } },
+  { tags: { $in: ["bovina", "pão"] } },
   { $inc: { "$vendasPorDia.6": 120 } },
 );
 

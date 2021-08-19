@@ -1,3 +1,3 @@
 db.produtos.createIndex({ descricao: "text" });
 
-db.produtos.count({ $text: { $search: "feito com" } });
+db.produtos.find({ $text: { $search: "feito com" } }).count();

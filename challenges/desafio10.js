@@ -1,5 +1,5 @@
 db.produtos.updateMany(
-  {},
+  { nome: { $exists: true } },
   { $set: { vendasPorDia: [0, 0, 0, 0, 0, 0, 0] } },
 );
 

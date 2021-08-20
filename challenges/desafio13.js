@@ -4,4 +4,6 @@ db.produtos.updateMany({ valoresNutricionais:
   },
   { $push: { tags: "muito sódio" } });
 
-db.produtos.find({}, { nome: 1, tags: 1, _id: 0 });
+db.produtos.find(
+  {}, { nome: 1, tags: 1, _id: 0 },
+  );

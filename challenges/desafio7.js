@@ -4,11 +4,11 @@ db.produtos.updateMany(
   {},
   { 
     $pull: {
-      ingredientes: "cebola"
-    }
-  }
+      ingredientes: "cebola",
+    },
+  },
 );
 db.produtos.find(
   {},
-  { _id: 0, nome: 1, ingredientes: 1}
+  { _id: 0, nome: 1, ingredientes: 1 },
 );

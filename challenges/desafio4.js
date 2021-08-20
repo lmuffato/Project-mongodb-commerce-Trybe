@@ -2,9 +2,9 @@
 // use("commerce");
 db.produtos.updateOne( // 1
   { nome: "Big Mac" },
-  { $set: { ultimaModificacao: Date() }}
+  { $set: { ultimaModificacao: Date() } },
 );
 db.produtos.find( // 2
-  { ultimaModificacao: { $exists: true} },
-  { _id: 0, nome: 1 }
+  { ultimaModificacao: { $exists: true } },
+  { _id: 0, nome: 1 },
 );

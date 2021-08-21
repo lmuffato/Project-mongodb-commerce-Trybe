@@ -15,7 +15,7 @@ db.produtos.updateOne({
 },
 {
   $inc: {
-    "vendasPorDia.4": 60,
+    "vendasPorDia.3": 60,
   }, 
 });
 
@@ -27,7 +27,7 @@ db.produtos.updateMany({
 },
 {
   $inc: {
-    "vendasPorDia.7": 120,
+    "vendasPorDia.6": 120,
   }, 
 });
 

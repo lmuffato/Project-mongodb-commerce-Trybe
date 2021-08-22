@@ -1,5 +1,10 @@
 const query = {};
 
+const update = {
+  $set: {
+    criadoPor: "Ronald McDonald" },
+  };
+
 const projectionFind = {
   nome: 1, criadoPor: 1, _id: 0,
 };
@@ -9,10 +14,12 @@ const params = {
   multi: true,
 };
 
+// Inserção do campo
 db.produtos.update(
   query,
-  { $set: { criadoPor: "Ronald McDonald" } },
+  update,
   params,
 );
 
+// Query
 db.produtos.find(query, projectionFind);

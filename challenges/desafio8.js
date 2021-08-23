@@ -12,7 +12,7 @@ const projectionFind = {
 };
 
 db.produtos.findOneAndUpdate(
-  { nome: "Quarteirão de Queijo" },
+  { nome: "Quarteirão com Queijo" },
   { $pop: {
     ingredientes: -1,
   } },

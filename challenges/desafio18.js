@@ -1,7 +1,6 @@
 db.produtos.createIndex(
   { descricao: "text" },
   {
-    // https://docs.mongodb.com/manual/tutorial/specify-language-for-text-index/
     default_language: "portuguese", 
   },
   );
@@ -9,8 +8,7 @@ db.produtos.createIndex(
 db.produtos.count(
   { 
     $text: {
-      $search: "\"feito com\"",
-      $language: "portuguese",
+      $search: "feito com",
     },
   },
 );

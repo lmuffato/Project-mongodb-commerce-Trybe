@@ -12,7 +12,9 @@ const params = {
 };
 
 const projectionFind = {
-  nome: 1, valorUnitario: 1, _id: 0,
+  nome: 1, 
+  valorUnitario: 1, 
+  _id: 0,
 };
 
 db.produtos.update(

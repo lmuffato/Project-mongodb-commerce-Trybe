@@ -28,7 +28,7 @@ db.produtos.updateOne(
 );
 
 db.produtos.updateMany(
-  { tags: { $all: ["bovino", "pao"] } },
+  { tags: { $all: ["bovino", "pão"] } },
   { $inc: { 
     "vendasPorDia.6": 120,
   } },

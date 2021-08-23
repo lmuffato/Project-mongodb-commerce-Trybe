@@ -13,7 +13,7 @@ const projectionFind = {
 
 db.produtos.updateMany(
   {},
-  { $push: {
+  { $set: {
     vendasPorDia: {
       $each: [0, 0, 0, 0, 0, 0, 0],
     },
@@ -21,7 +21,7 @@ db.produtos.updateMany(
   params,
 );
 
-db.produtos.updateOne(
+db.produtos.findOneAndUpdate(
   { nome: "Big Mac" },
   { $inc: {
     "vendasPorDia.3": 60,

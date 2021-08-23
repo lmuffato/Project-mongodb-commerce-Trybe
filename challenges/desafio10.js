@@ -30,7 +30,7 @@ db.produtos.findOneAndUpdate(
 );
 
 db.produtos.updateMany(
-  { tags: { $in: ["bovino", "pao"] } },
+  { tags: { $all: ["bovino", "pao"] } },
   { $inc: { 
     "vendasPorDia.6": 120,
   } },

@@ -17,3 +17,6 @@ db.produtos.find(
   {},
   { nome: 1, vendasPorDia: 1, _id: 0 },
 );
+
+/* Como indicar a posição de um array no MongoDb:
+https://docs.mongodb.com/manual/core/document/#std-label-document-dot-notation */

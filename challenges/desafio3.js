@@ -3,6 +3,12 @@ const params = {
   multi: true,
 };
 
+const projectionFind = {
+  nome: 1, 
+  avaliacao: 1, 
+  _id: 0,
+};
+
 db.produtos.updateMany(
   {},
   { $set: { avaliacao: NumberInt("0") } },
@@ -21,4 +27,4 @@ db.produtos.updateMany(
   params,
 );
 
-db.produtos.find({}, { _id: 0, nome: 1, avaliacao: 1 });
+db.produtos.find({}, projectionFind);

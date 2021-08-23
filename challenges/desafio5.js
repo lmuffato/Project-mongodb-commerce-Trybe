@@ -9,8 +9,8 @@ const params = {
   multi: true,
 };
 
-db.products.findOneAndUpdate(
-  { nome: { $ne: "McChiken" } },
+db.products.updateMany(
+  { nome: { $nin: ["McChiken"] } },
   { $addToSet: { ingredientes: "ketchup" } },
   params,
 );

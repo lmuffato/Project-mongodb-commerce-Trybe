@@ -12,7 +12,7 @@ const projectionFind = {
 };
 
 db.produtos.updateMany(
-  {},
+  queryAll,
   { $push: {
     tags: {
       $each: ["combo", "tasty"],

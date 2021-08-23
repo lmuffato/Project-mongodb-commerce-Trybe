@@ -11,7 +11,7 @@ const projectionFind = {
   _id: 0,
 };
 
-db.produtos.findOneAndUpdate(
+db.produtos.updateOne(
   { nome: "Cheddar McMelt" },
   { $pop: {
     ingredientes: 1,

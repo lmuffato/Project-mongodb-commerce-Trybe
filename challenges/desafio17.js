@@ -4,3 +4,5 @@ db.produtos.createIndex(
 );
   
 db.produtos.count({ $text: { $search: "hamburgues frango" } });
+
+// https://docs.mongodb.com/manual/tutorial/specify-language-for-text-index/

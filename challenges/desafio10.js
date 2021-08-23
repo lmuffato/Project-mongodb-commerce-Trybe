@@ -12,11 +12,9 @@ const projectionFind = {
 };
 
 db.produtos.updateMany(
-  {},
+  queryAll,
   { $set: {
-    vendasPorDia: {
-      $each: [0, 0, 0, 0, 0, 0, 0],
-    },
+    vendasPorDia: [0, 0, 0, 0, 0, 0, 0],
   } },
   params,
 );

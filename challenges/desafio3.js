@@ -1,7 +1,7 @@
 const queryAll = {};
 
-const tagsBovino = {
-  "tags.0": "bovino",
+const queryBovino = {
+  "tags.0": { $eq: "bovino" },
 };
 
 const increBovino = {
@@ -10,8 +10,8 @@ const increBovino = {
   },
 };
 
-const tagsAve = {
-  "tags.0": "ave",
+const queryAve = {
+  "tags.0": { $eq: "ave" },
 };
 
 const increAve = {
@@ -22,7 +22,7 @@ const increAve = {
 
 const updateAvaliacao = {
   $set: {
-    avaliacao: 0,
+    avaliacao: NumberInt("0"),
   },
 };
 
@@ -38,22 +38,22 @@ const projectionFind = {
 };
 
 // 1. Inserção campos avaliacao
-db.produtos.update(
+db.produtos.updateMany(
   queryAll,
   updateAvaliacao,
   params,
 );
 
 // 2. Incrementado avaliação sanduíche tipo bovino
-db.produtos.update(
-  tagsBovino,
+db.produtos.updateMany(
+  queryBovino,
   increBovino,
   params,
 );
 
 // 3. Incrementando avaliação sanduícke tipo Ave
-db.produtos.update(
-  tagsAve,
+db.produtos.updateMany(
+  queryAve,
   increAve,
   params,
 );

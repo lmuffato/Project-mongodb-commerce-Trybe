@@ -1,3 +1,8 @@
+const projectionFind = {
+  _id: 0,
+  nome: 1,
+};
+
 db.produtos.findOneAndUpdate(
   { nome: "Big Mac" },
   { $currentDate: {
@@ -8,5 +13,5 @@ db.produtos.findOneAndUpdate(
 
 db.produtos.find(
   { ultimaModificacao: { $exists: true } },
-  { _id: 0, nome: 1 },
+  projectionFind,
 );

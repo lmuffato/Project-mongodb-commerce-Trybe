@@ -11,14 +11,14 @@ const projectionFind = {
   _id: 0,
 };
 
-db.produtos.updateOne(
+db.produtos.updateMany(
   {},
   { $addToSet: {
     tags: {
       $each: ["combo", "tasty"],
-    },
+      $sort: 1 },
   } },
   params,
-).sort({ tags: -1 });
+);
 
 db.produtos.find(queryAll, projectionFind);

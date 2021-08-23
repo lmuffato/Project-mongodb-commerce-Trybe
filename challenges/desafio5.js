@@ -10,7 +10,7 @@ const params = {
 };
 
 db.products.updateMany(
-  { nome: { $nin: ["McChicken"] } },
+  { nome: { $ne: "McChicken" } },
   { $addToSet: { ingredientes: "ketchup" } },
   params,
 );

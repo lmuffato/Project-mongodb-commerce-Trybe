@@ -10,7 +10,7 @@ const params = {
 };
 
 db.products.findOneAndUpdate(
-  { nome: { $nin: "McChiken" } },
+  { nome: { $nin: ["McChiken"] } },
   { $addToSet: { ingredientes: "ketchup" } },
   params,
 );

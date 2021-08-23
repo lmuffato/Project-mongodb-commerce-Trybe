@@ -14,9 +14,7 @@ const projectionFind = {
 db.produtos.updateMany(
   queryAll,
   { $pull: {
-    ingredientes: {
-      $in: ["cebola"],
-    },
+    ingredientes: "cebola",
   } },
   params,
 );

@@ -9,7 +9,7 @@ db.produtos.updateMany(
 );
 
 db.produtos.updateMany(
-  { tags: { $eq: "ave" } },
+  { "tags.0": { $eq: "ave" } },
   { $inc: { avaliacao: 3 } },
 );
 

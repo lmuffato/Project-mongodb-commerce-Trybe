@@ -21,7 +21,7 @@ db.produtos.updateMany(
   params,
 );
 
-db.produtos.findOneAndUpdate(
+db.produtos.updateOne(
   { nome: "Big Mac" },
   { $inc: {
     "vendasPorDia.3": 60,

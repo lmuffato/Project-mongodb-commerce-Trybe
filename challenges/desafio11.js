@@ -1,11 +1,11 @@
 db.produtos.updateMany(
   {},
-  {
+  { 
     $push: {
-      tags: {
+      tags: { 
         $each: ["combo", "tasty"],
         $sort: 1,
       },
-    },
+    }, 
   },
 );

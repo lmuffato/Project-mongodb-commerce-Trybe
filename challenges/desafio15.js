@@ -5,5 +5,3 @@ db.produtos.count(
     },
   },
 );
-
-db.produtos.find(queryAll, projectionFind);

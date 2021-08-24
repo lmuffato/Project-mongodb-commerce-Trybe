@@ -3,7 +3,7 @@ db.produtos.createIndex(
     descricao: "text",
   },
   {
-    defaultlanguage: "portuguese",
+    default_language: "portuguese",
   },
 );
 

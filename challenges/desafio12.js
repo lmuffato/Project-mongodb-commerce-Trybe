@@ -11,7 +11,7 @@ const projectionFind = {
   _id: 0,
 };
 
-db.produtos.updateOne(
+db.produtos.updateMany(
   queryAll,
   { $push: {
     valoresNutricionais: {

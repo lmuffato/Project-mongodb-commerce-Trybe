@@ -1,8 +1,3 @@
-const params = {
-  upsert: true,
-  multi: true,
-};
-
 const projectionFind = {
   nome: 1, 
   tags: 1, 
@@ -19,7 +14,6 @@ db.produtos.updateMany(
     },
   },
   { $push: { tags: "contém sódio" } },
-  params,
 );
 
 db.produtos.find(queryAll, projectionFind);

@@ -3,6 +3,7 @@
 
 # VSCode repo settings
 .vscode
+.idea
 
 # BSON data files
 assets/produtos.bson

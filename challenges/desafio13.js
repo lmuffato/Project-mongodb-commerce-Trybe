@@ -1,3 +1,5 @@
+const queryAll = {};
+
 const projectionFind = {
   nome: 1, 
   tags: 1, 

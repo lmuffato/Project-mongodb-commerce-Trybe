@@ -1,4 +1,3 @@
-// use("commerce")
 db.produtos.updateMany(
   { nome: { $: "McChicken" } },
   { $addToSet: { ingredientes: "ketchup" } },

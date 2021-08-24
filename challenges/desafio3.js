@@ -2,6 +2,7 @@ db.produtos.updateMany(
   {},
   { $set: { avaliacao: NumberInt("0") } },
 );
+
 db.produros.updateMany(
   { tag: { $all: ["bovino"] } },
   { $inc: { avaliacao: 5 } },

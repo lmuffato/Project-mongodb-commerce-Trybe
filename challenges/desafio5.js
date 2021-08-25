@@ -9,4 +9,7 @@ db.produtos.updateMany({
   { $addToSet: { ingredientes: "ketchup" } });
 
 /* 2. Crie uma query que retorne o nome e ingredientes de todos os documentos. */
-db.produtos.find({}, { _id: false, ingredientes: true });
+db.produtos.find(
+  {},
+  { _id: false, nome: true, ingredientes: true },
+);

@@ -13,4 +13,5 @@ db.produtos.updateMany(
 
 /* 2. Crie uma query que retorne o nome de todos os documentos em que o campo
 ultimaModificacao existe. */
-db.produtos.find({ ultimaModificacao: { $exists: true } });
+db.produtos.find({ ultimaModificacao: { $exists: true } },
+  { _id: false, nome: true });

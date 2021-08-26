@@ -12,5 +12,5 @@ db.produtos.updateMany(
 os documentos. */
 db.produtos.find(
   {},
-  { _id: false, descricao: true, descricaoSite: true },
+  { _id: false, nome: true, descricao: true, descricaoSite: true },
 );

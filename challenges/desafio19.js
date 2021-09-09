@@ -1,9 +1,8 @@
-db.produtos.updateOne(
+db.produtos.updateMany(
+  {},
   {
-    nome: "Big Mac" },
-  {
-    $unset: {
-      curtidas: "",
+    $rename: {
+      descricao: "descricaoSite",
     },
   },
 );
@@ -12,7 +11,8 @@ db.produtos.find(
   {},
   {
     nome: 1,
-    curtidas: 1,
+    descricao: 1,
+    descricaoSite: 1,
     _id: 0,
   },
 );

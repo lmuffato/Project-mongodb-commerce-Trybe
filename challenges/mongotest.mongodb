@@ -262,5 +262,21 @@ db.produtos.updateMany({ $nor: [ { ingredientes:"ketchup" },
   { nome:"McChicken" } ]},
   { $push: { ingredientes: "ketchup" } });
 
+
+
+db.produtos.updateMany({ $or: [{ nome: "Big Mac" },
+  { nome: "Quarteirão com Queijo" }]},
+  { $push: { ingredientes: "bacon" } });
+
+
+
+db.produtos.updateMany({},
+  { $pull: { ingredientes: "cebola" } });
+
+
 db.produtos.find({},
   { _id: 0, nome: 1, ingredientes: 1 });
+
+
+db.produtos.updateMany({ nome: "Quarteirão com Queijo" },
+  { $pop: { ingredientes: 1 } });

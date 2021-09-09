@@ -1,6 +1,6 @@
 db.produtos.updateOne(
     { nome: "Big Mac" },
-    { $currentDate: { ultimaModificacao: 1 } },
+    { $currentDate: { ultimaModificacao: { $type: "date" } } },
 );
 
 db.produtos.find(

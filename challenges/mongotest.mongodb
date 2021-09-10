@@ -1,3 +1,4 @@
+db.produtos.drop({});
 db.produtos.insertMany([
   {
     _id: ObjectId("5f280af11532b7276329ba47"),
@@ -279,4 +280,42 @@ db.produtos.find({},
 
 
 db.produtos.updateMany({ nome: "Quarteirão com Queijo" },
+  { $pop: { ingredientes: -1 } });
+
+
+db.produtos.updateMany({ nome: "Cheddar McMelt" },
   { $pop: { ingredientes: 1 } });
+
+db.produtos.find({},
+  { _id: 0, nome: 1, vendasPorDia: 1 });
+
+
+db.produtos.updateMany({},
+  { $set: { vendasPorDia: [0,0,0,0,0,0,0] } });
+
+db.produtos.updateMany({ nome: "Big Mac" },
+  { $set: { "vendasPorDia.3": 60 } });
+
+db.produtos.updateMany({ tags: {$in: ["bovino", "pao"] } },
+  { $set: { "vendasPorDia.6": 120 } });
+
+db.produtos.updateMany({},
+  { $push: { tags: { $each: ["combo", "tasty"], $sort: 1} } });
+
+db.produtos.find({},
+  { _id: 0, nome: 1, tags: 1 });
+
+db.produtos.updateMany({},
+  { $push: { valoresNutricionais: { $each: [], $sort: {percentual: -1 }} } });
+
+db.produtos.find({},
+  { _id: 0, nome: 1, valoresNutricionais: 1 });
+
+
+db.produtos.updateMany({ valoresNutricionais: { $elemMatch: { tipo: "sódio",
+  percentual: { $gte: 40 } } } },
+  { $push: { tags: "muito sódio" }});
+
+db.produtos.find({valoresNutricionais: { $elemMatch: { tipo: "sódio",
+  percentual: { $gte: 40 } } } }, 
+  { _id: 0, nome: 1, tags: 1 });

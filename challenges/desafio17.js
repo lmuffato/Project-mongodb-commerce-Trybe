@@ -2,4 +2,4 @@
 db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });
 // Crie uma query que retorne a quantidade de documentos que contêm as palavras 
 // frango ou hamburguer utilizando o operador $text.
-db.produtos.find({ $text: { $search: "frango hamburguer" } });
+db.produtos.count({ $text: { $search: "frango hamburguer" } });

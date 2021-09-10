@@ -318,3 +318,22 @@ db.produtos.updateMany({ valoresNutricionais: { $elemMatch: { tipo: "sódio",
 
 db.produtos.find({}, 
   { _id: 0, nome: 1, tags: 1 });
+
+db.produtos.count({ nome: /mc/i });
+
+db.produtos.count({ ingredientes: { $size: 4 } });
+
+
+db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });
+db.produtos.count({ $text: { $search: "frango hamburguer"} });
+db.produtos.dropIndex("subject_text");
+db.produtos.find({ $text: { $search: "\"feito com\""} });
+db.produtos.dropIndex("subject_text");
+
+
+db.produtos.updateMany({}, { $rename: { descricao:"descricaoSite" } });
+db.produtos.find({},
+  { _id: 0, nome: 1, curtidas: 1});
+
+db.produtos.updateMany({ nome: "Big Mac" },
+  { $unset: { curtidas: "" } });

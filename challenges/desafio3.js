@@ -13,13 +13,13 @@ db.produtos.updateMany(
         },
     },
     {
-        avaliacao: { $inc: 5 },
+        $inc: { avaliacao: 5 },
     },
 );
 // Crie uma query que incremente o valor do campo avaliacao em 3 em todos os sanduíches de ave
 db.produtos.updateMany(
     { tags: { $in: ["ave"] } },
-    { avaliacao: { $inc: 3 } },
+    { $inc: { avaliacao: 3 } },
 );
 // Crie uma query que retorne o nome e avaliacao de todos os sanduíches
 db.produtos.find({}, { _id: 0, nome: 1, avaliacao: 1 });

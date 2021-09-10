@@ -2,7 +2,7 @@
 db.produtos.updateMany(
     {},
     { $rename: {
-        descricao: descricaoSite,
+        descricao: "descricaoSite",
     } },
 );
 // Crie uma query que retorne o nome, descricao e descricaoSite de todos os documentos.

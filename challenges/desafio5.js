@@ -1,5 +1,5 @@
 // Crie uma query que adicione ketchup aos ingredientes para todos os sanduíches menos o McChicken, garantindo que não haja duplicidade nos ingredientes
-db.produtos.updateOne(
+db.produtos.updateMany(
     { nome: { $in: ["Big Mac", "Quarteirão com Queijo", "Cheddar McMelt", "Extra Chicken"] } },
     { $addToSet: { ingredientes: { $each: ["ketchup"] } } },
 );

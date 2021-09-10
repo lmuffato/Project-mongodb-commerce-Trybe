@@ -3,5 +3,4 @@ db.produtos.updateMany(
     { nome: { $in: ["Big Mac", "Quarteirão com Queijo"] } },
     { $addToSet: { ingredientes: { $each: ["bacon"] } } },
 );
-//  Crie uma query que retorne o nome e ingredientes de todos os documentos.
  db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
